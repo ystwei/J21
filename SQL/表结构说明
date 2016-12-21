@@ -1,0 +1,14 @@
+Account：
+  username:用户名 PK
+  password:密码
+  email:邮箱
+  xm：姓名
+  address：地址
+Profile:爱好
+  username pk fk
+  lang:喜爱的语言设置
+  catid:喜爱的宠物id FK
+Category：宠物种类
+  catid:宠物id
+  name：宠物名称
+  descn：宠物描述
