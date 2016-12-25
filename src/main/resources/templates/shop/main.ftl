@@ -2,131 +2,134 @@
 
 <#include "../commons/top.ftl" encoding="utf-8" parse="true"/>
 
-		<table border="0" cellspacing="2" cellpadding="0" width="100%">
-			<tr>
-				<td valign="top" width="100%">
+<table border="0" cellspacing="2" cellpadding="0" width="100%">
+    <tr>
+        <td valign="top" width="100%">
 
-					<table align="left" border="0" cellspacing="0" width="80%">
-						<tbody>
-							<tr>
-								<td valign="top">
+            <table align="left" border="0" cellspacing="0" width="80%">
+                <tbody>
+                <tr>
+                    <td valign="top">
 
-									<!-- SIDEBAR -->
-									
-									<table bgcolor="#5A8C29" border="0" cellspacing="2"
-										cellpadding="0" width="100%">
-										<tr>
-											<td>
-												<table bgcolor="#FFFF88" border="0" cellspacing="0"
-													cellpadding="5" width="200">
-													<tbody>
-														<tr>
-															<td>
-																<b><i><font size="2" color="BLUE">
-																	<#if username??>
-																	    ${username}
+                        <!-- SIDEBAR -->
 
-																	</#if>
+                        <table bgcolor="#5A8C29" border="0" cellspacing="2"
+                               cellpadding="0" width="100%">
+                            <tr>
+                                <td>
+                                    <table bgcolor="#FFFF88" border="0" cellspacing="0"
+                                           cellpadding="5" width="200">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <b><i><font size="2" color="BLUE">
+												<#if username??>
+												${username}
+												<#else>
+                                                    游客
+
+												</#if>
 
 
-																</font></i></b>
-																&nbsp;
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<a href="/pet/query/cat/FISH/pro/''/item/''">
-																<img
-																		border="0" src="../images/fish_icon.gif" />
 
-                                                                </a>
-																<br>
-																<font size="2"><i></i>
-																</font>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<a
-																	href=""><img
-																		border="0" src="../images/dogs_icon.gif" />
-																</a>
-																<br>
-																<font size="2"><i></i>
-																</font>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<a
-																	href=""><img
-																		border="0" src="../images/cats_icon.gif" />
-																</a>
-																<br>
-																<font size="2"><i></i>
-																</font>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<a
-																	href=""><img
-																		border="0" src="../images/reptiles_icon.gif" />
-																</a>
-																<br>
-																<font size="2"><i></i>
-																</font>
-															</td>
-														</tr>
-														<tr>
-															<td>
-																<a
-																	href=""><img
-																		border="0" src="../images/birds_icon.gif" />
-																</a>
-																<br>
-																<font size="2"><i></i>
-																</font>
-															</td>
-														</tr>
+                                                </font></i></b>
+                                                &nbsp;
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="/pet/query/cat/FISH/pro/null/item/null">
+                                                    <img
+                                                            border="0" src="../images/fish_icon.gif" />
 
-													</tbody>
-												</table>
-											</td>
-										</tr>
-									</table>
+                                                </a>
+                                                <br>
+                                                <font size="2"><i></i>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a
+                                                        href=""><img
+                                                        border="0" src="../images/dogs_icon.gif" />
+                                                </a>
+                                                <br>
+                                                <font size="2"><i></i>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a
+                                                        href=""><img
+                                                        border="0" src="../images/cats_icon.gif" />
+                                                </a>
+                                                <br>
+                                                <font size="2"><i></i>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a
+                                                        href=""><img
+                                                        border="0" src="../images/reptiles_icon.gif" />
+                                                </a>
+                                                <br>
+                                                <font size="2"><i></i>
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a
+                                                        href=""><img
+                                                        border="0" src="../images/birds_icon.gif" />
+                                                </a>
+                                                <br>
+                                                <font size="2"><i></i>
+                                                </font>
+                                            </td>
+                                        </tr>
 
-								</td>
-								<td align="center" bgcolor="white" height="300" width="100%">
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
 
-									<!-- MAIN IMAGE -->
+                    </td>
+                    <td align="center" bgcolor="white" height="300" width="100%">
 
-									<map name="estoremap">
-										<area alt="Birds" coords="72,2,280,250"
-											href="" shape="RECT" />
-										<area alt="Fish" coords="2,180,72,250"
-											href="" shape="RECT" />
-										<area alt="Dogs" coords="60,250,130,320"
-											href="" shape="RECT" />
-										<area alt="Reptiles" coords="140,270,210,340"
-											href="" shape="RECT" />
-										<area alt="Cats" coords="225,240,295,310"
-											href="" shape="RECT" />
-										<area alt="Birds" coords="280,180,350,250"
-											href="" shape="RECT" />
-									</map>
-									<img border="0" height="355" src="../images/splash.gif"
-										align="center" usemap="#estoremap" width="350" />
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			</tr>
+                        <!-- MAIN IMAGE -->
 
-		</table>
+                        <map name="estoremap">
+                            <area alt="Birds" coords="72,2,280,250"
+                                  href="" shape="RECT" />
+                            <area alt="Fish" coords="2,180,72,250"
+                                  href="" shape="RECT" />
+                            <area alt="Dogs" coords="60,250,130,320"
+                                  href="" shape="RECT" />
+                            <area alt="Reptiles" coords="140,270,210,340"
+                                  href="" shape="RECT" />
+                            <area alt="Cats" coords="225,240,295,310"
+                                  href="" shape="RECT" />
+                            <area alt="Birds" coords="280,180,350,250"
+                                  href="" shape="RECT" />
+                        </map>
+                        <img border="0" height="355" src="../images/splash.gif"
+                             align="center" usemap="#estoremap" width="350" />
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
 
-		<br>
+</table>
+
+<br>
 
 
 <#include "../commons/bottom.ftl" encoding="utf-8" parse="true"/>

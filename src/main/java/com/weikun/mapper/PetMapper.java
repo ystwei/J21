@@ -26,7 +26,7 @@ public interface PetMapper {
             @Result(column="descn", property="descn", jdbcType=JdbcType.VARCHAR),
             @Result(column="pic", property="pic", jdbcType=JdbcType.VARCHAR),
             @Result(column="catid", property="category",
-                    one = @One(select = "com.weikun.CategoryMapper.findCatByProid")),
+                    one = @One(select = "com.weikun.mapper.CategoryMapper.findCatByProid"))
     })
     @Options(statementType = StatementType.CALLABLE)
     public List<Product> queryPet5Product(
@@ -53,7 +53,7 @@ public interface PetMapper {
             @Result(column="attr4", property="attr4", jdbcType=JdbcType.VARCHAR),
             @Result(column="attr5", property="attr5", jdbcType=JdbcType.VARCHAR),
             @Result(column="productid", property="product",
-                    one = @One(select = "com.weikun.ProductMapper.findProByItemid"))
+                    one = @One(select = "com.weikun.mapper.ProductMapper.findProByItemid"))
     })
     @Options(statementType = StatementType.CALLABLE)
     public List<Item> queryPet5Items(

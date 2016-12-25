@@ -38,7 +38,7 @@
         <TD vAlign=top width=100%>
             <p>&nbsp;</p>
             <p align="center"><b>欢迎进入易圣通的宠物商店</b></p>
-            <p align="center"><a href="shop/main.ftl">进入商店</a></p>
+            <p align="center"><a href="main">进入商店</a></p>
         </TD>
     </TR>
     </TBODY>

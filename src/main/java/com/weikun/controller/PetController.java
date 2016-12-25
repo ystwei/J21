@@ -22,10 +22,13 @@ public class PetController {
     @RequestMapping("/query/cat/{catid}/pro/{proid}/item/{itemid}")
     public String query(@PathVariable(value="catid") String catid,
                         @PathVariable(value="proid") String proid,
-                        @PathVariable(value="itemid") String itemid,Map map){
+                        @PathVariable(value="itemid") String itemid,
+                        Map map){
         List list=null;
+        catid=catid.equals("null")?"":catid;
+        proid=proid.equals("null")?"":proid;
+        itemid=itemid.equals("null")?"":itemid;
         if(catid!="" ||catid.length()>0){
-
             list=pservice.queryPet5Product(catid,proid,itemid);
         }else{
             list=pservice.queryPet5Items(catid,proid,itemid);
