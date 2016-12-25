@@ -2,6 +2,7 @@ error:
   login:
      msg: 登录失败
   register:
+     username: 用户名不能为空！
      pwd: 密码不一致
      email: 邮箱格式错误
      category: 必须选你喜欢的宠物

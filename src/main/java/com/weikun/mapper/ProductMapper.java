@@ -1,22 +1,38 @@
 package com.weikun.mapper;
 
+import com.weikun.model.Category;
 import com.weikun.model.Product;
 import com.weikun.model.ProductExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.StatementType;
 import org.apache.ibatis.type.JdbcType;
 
 public interface ProductMapper {
+
+
+    @Select("select * from product where productid=#{productid} ")
+    @Results({
+            @Result(column="productid", property="productid", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="catid", property="catid", jdbcType=JdbcType.VARCHAR),
+            @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
+            @Result(column="descn", property="descn", jdbcType=JdbcType.VARCHAR),
+            @Result(column="pic", property="pic", jdbcType=JdbcType.VARCHAR)
+    })
+    Product findProByItemid(String productid);
+
+    @Select("select * from product where catid=#{catid} ")
+    @Results({
+            @Result(column="productid", property="productid", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="catid", property="catid", jdbcType=JdbcType.VARCHAR),
+            @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
+            @Result(column="descn", property="descn", jdbcType=JdbcType.VARCHAR),
+            @Result(column="pic", property="pic", jdbcType=JdbcType.VARCHAR)
+    })
+    List<Product> findProByCatid(String catid);
+
+
     @SelectProvider(type=ProductSqlProvider.class, method="countByExample")
     long countByExample(ProductExample example);
 

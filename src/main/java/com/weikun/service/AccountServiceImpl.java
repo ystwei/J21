@@ -34,7 +34,13 @@ public class AccountServiceImpl {
     }
 
     public boolean insert(Account record){
+
+        if(adao.selectByPrimaryKey(record.getUsername())!=null){
+            return false;
+        }
         record.getProfile().setUsername(record.getUsername());//设置profile的主键
         return adao.insert(record)>0 &&pdao.insert(record.getProfile())>0;
     }
+
+
 }

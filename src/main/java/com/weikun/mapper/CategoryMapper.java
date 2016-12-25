@@ -3,20 +3,22 @@ package com.weikun.mapper;
 import com.weikun.model.Category;
 import com.weikun.model.CategoryExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+
+import com.weikun.model.Product;
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 public interface CategoryMapper {
+
+    @Select("select * from category where catid=#{catid} ")
+    @Results({
+            @Result(column="catid", property="catid", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
+            @Result(column="descn", property="descn", jdbcType=JdbcType.VARCHAR)
+    })
+    Category findCatByProid(String catid);
+
+
     @SelectProvider(type=CategorySqlProvider.class, method="countByExample")
     long countByExample(CategoryExample example);
 
@@ -57,7 +59,9 @@ public interface CategoryMapper {
     @Results({
         @Result(column="catid", property="catid", jdbcType=JdbcType.VARCHAR, id=true),
         @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
-        @Result(column="descn", property="descn", jdbcType=JdbcType.VARCHAR)
+        @Result(column="descn", property="descn", jdbcType=JdbcType.VARCHAR),
+        @Result(property="plist", javaType = List.class,column = "catid",
+                many = @Many(select="com.weiun.mapper.ProductMapper.findProByCatid")),
     })
     Category selectByPrimaryKey(String catid);
 

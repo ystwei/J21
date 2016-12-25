@@ -2,6 +2,24 @@ package com.weikun.model;
 
 public class Product {
     private String productid;
+    private Category category;
+    private Object ilist;//Item list
+
+    public Object getIlist() {
+        return ilist;
+    }
+
+    public void setIlist(Object ilist) {
+        this.ilist = ilist;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     private String catid;
 

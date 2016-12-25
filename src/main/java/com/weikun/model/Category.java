@@ -2,6 +2,15 @@ package com.weikun.model;
 
 public class Category {
     private String catid;
+    private Object plist;//product list
+
+    public Object getPlist() {
+        return plist;
+    }
+
+    public void setPlist(Object plist) {
+        this.plist = plist;
+    }
 
     private String name;
 

@@ -1,7 +1,7 @@
 <#include "../commons/top.ftl" encoding="utf-8" parse="true"/>
 <br/>
 <form name="form1" id="form1" action="/account/reg" method="post" commandName="account">
-	<TABLE cellpadding=10 cellspacing=0 align=center border=1 width="400"
+	<TABLE cellpadding=10 cellspacing=0 align=center border=1 width="450"
 		bgcolor=#dddddd>
 		<TR>
 			<TD>
@@ -14,6 +14,10 @@
 					<TR bgcolor=#FFFF88>						
 						<TD>
 						 	用户名：<input type="text" id="username" name="username"/>
+							<font color="red"><#if lerror1??>
+									${lerror1}
+
+							</#if></font>
 						</TD>
 					</TR>
 					<TR bgcolor=#FFFF88>
@@ -27,7 +31,10 @@
 						
 						<TD>
                             校密码：<input type="text" id="repassword" name="repassword"/>
-							
+                            <font color="red"><#if lerror2??>
+
+									${lerror2}
+							</#if></font>
 						</TD>
 					</TR>
 				</TABLE>
@@ -47,6 +54,10 @@
 						
 						<TD>
                             邮&nbsp;箱：<input type="text" id="email" name="email"/>
+                            <font color="red"><#if lerror3??>
+														${lerror3}
+
+							</#if></font>
 						</TD>
 					</TR>
 					
@@ -108,6 +119,7 @@
 	</TABLE>
     <BR>
     <CENTER>
+        <font color="red"><#if lerror4??>${lerror4}</#if></font>
         <input border=0 type="image" src="/static/images/button_submit.gif" />
     </CENTER>
 </form>

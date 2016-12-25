@@ -22,16 +22,24 @@
 													<tbody>
 														<tr>
 															<td>
-																<b><i><font size="2" color="BLACK"></font></i></b>
+																<b><i><font size="2" color="BLUE">
+																	<#if username??>
+																	    ${username}
+
+																	</#if>
+
+
+																</font></i></b>
 																&nbsp;
 															</td>
 														</tr>
 														<tr>
 															<td>
-															<img
+																<a href="/pet/query/cat/FISH/pro/''/item/''">
+																<img
 																		border="0" src="../images/fish_icon.gif" />
-															
-																
+
+                                                                </a>
 																<br>
 																<font size="2"><i></i>
 																</font>
@@ -119,6 +127,6 @@
 		</table>
 
 		<br>
-<%@include file="../commons/banner.jsp" %>		
-<%@include file="../commons/bottom.ftl" %>
 
+
+<#include "../commons/bottom.ftl" encoding="utf-8" parse="true"/>
