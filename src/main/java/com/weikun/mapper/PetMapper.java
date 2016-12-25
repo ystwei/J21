@@ -16,9 +16,9 @@ public interface PetMapper {
 
     //存储过程
     @Select(value= "{ CALL  queryPet5( " +
-            "#{in_catid, mode=IN, jdbcType=INTEGER}," +
-            "#{in_proid, mode=IN, jdbcType=INTEGER}," +
-            "#{in_itemid, mode=IN, jdbcType=INTEGER})}")
+            "#{in_catid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_proid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_itemid, mode=IN, jdbcType=VARCHAR})}")
     @Results({
             @Result(column="productid", property="productid", jdbcType= JdbcType.VARCHAR, id=true),
             @Result(column="catid", property="catid", jdbcType=JdbcType.VARCHAR),
@@ -38,9 +38,9 @@ public interface PetMapper {
 
     //存储过程
     @Select(value= "{ CALL  queryPet5( " +
-            "#{in_catid, mode=IN, jdbcType=INTEGER}," +
-            "#{in_proid, mode=IN, jdbcType=INTEGER}," +
-            "#{in_itemid, mode=IN, jdbcType=INTEGER})}")
+            "#{in_catid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_proid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_itemid, mode=IN, jdbcType=VARCHAR})}")
     @Results({
             @Result(column="itemid", property="itemid", jdbcType=JdbcType.VARCHAR, id=true),
             @Result(column="productid", property="productid", jdbcType=JdbcType.VARCHAR),

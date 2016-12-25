@@ -1,22 +1,33 @@
 package com.weikun.mapper;
 
+import com.weikun.model.Category;
 import com.weikun.model.Item;
 import com.weikun.model.ItemExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+
+import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
 
 public interface ItemMapper {
+
+    @Select("select * from item where itemid=#{itemid} ")
+    @Results({
+            @Result(column="itemid", property="itemid", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="productid", property="productid", jdbcType=JdbcType.VARCHAR),
+            @Result(column="listprice", property="listprice", jdbcType=JdbcType.DECIMAL),
+            @Result(column="unitcost", property="unitcost", jdbcType=JdbcType.DECIMAL),
+            @Result(column="status", property="status", jdbcType=JdbcType.VARCHAR),
+            @Result(column="attr1", property="attr1", jdbcType=JdbcType.VARCHAR),
+            @Result(column="attr2", property="attr2", jdbcType=JdbcType.VARCHAR),
+            @Result(column="attr3", property="attr3", jdbcType=JdbcType.VARCHAR),
+            @Result(column="attr4", property="attr4", jdbcType=JdbcType.VARCHAR),
+            @Result(column="attr5", property="attr5", jdbcType=JdbcType.VARCHAR),
+            @Result(column="productid", property="product",
+                    one = @One(select = "com.weikun.mapper.ProductMapper.findProByItemid"))
+    })
+    Item findItemByItemid(String itemid);
+
+
     @SelectProvider(type=ItemSqlProvider.class, method="countByExample")
     long countByExample(ItemExample example);
 

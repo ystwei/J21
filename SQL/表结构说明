@@ -23,3 +23,11 @@ Item:宠物项目
   productid:产品编号 fk
   listprice:单价
   attr1:该项目描述
+Cart:购物车
+  orderid：订单编号PK FK
+  itemid：项目编号PK FK
+  quantity:数量：
+Orders
+  orderid：订单编号
+  orderdate:结单日期
+  totalprice：总计价格

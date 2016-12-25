@@ -44,25 +44,25 @@
 
                                                 </a>
                                                 <br>
-                                                <font size="2"><i></i>
+                                                <font size="2"><i>鱼</i>
                                                 </font>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <a
-                                                        href=""><img
+                                                        href="/pet/query/cat/DOGS/pro/null/item/null"><img
                                                         border="0" src="../images/dogs_icon.gif" />
                                                 </a>
                                                 <br>
-                                                <font size="2"><i></i>
+                                                <font size="2"><i>狗</i>
                                                 </font>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
                                                 <a
-                                                        href=""><img
+                                                        href="/pet/query/cat/CATS/pro/null/item/null"><img
                                                         border="0" src="../images/cats_icon.gif" />
                                                 </a>
                                                 <br>
@@ -73,7 +73,7 @@
                                         <tr>
                                             <td>
                                                 <a
-                                                        href=""><img
+                                                        href="/pet/query/cat/REPTILES/pro/null/item/null"><img
                                                         border="0" src="../images/reptiles_icon.gif" />
                                                 </a>
                                                 <br>

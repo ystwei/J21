@@ -4,20 +4,46 @@ import com.weikun.model.Cart;
 import com.weikun.model.CartExample;
 import com.weikun.model.CartKey;
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
-import org.apache.ibatis.annotations.UpdateProvider;
+import java.util.Map;
+
+import com.weikun.model.Item;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.StatementType;
 import org.apache.ibatis.type.JdbcType;
 
 public interface CartMapper {
+
+
+
+    //存储过程
+    @Insert(value= "{ CALL  addCart6( " +
+            "#{in_itemid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_quantity, mode=IN, jdbcType=VARCHAR}," +
+            "#{out_oid, mode=OUT, jdbcType=VARCHAR})}")
+    @Options(statementType = StatementType.CALLABLE)
+    public void addCart(Map map);
+
+
+    @Update(value= "{ CALL  updateCart6( " +
+            "#{in_orderid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_itemid, mode=IN, jdbcType=VARCHAR}," +
+            "#{in_qty, mode=IN, jdbcType=INTEGER})}")
+    @Options(statementType = StatementType.CALLABLE)
+    public void updateCart(Map map);
+
+    @Select(value= "{ CALL  queryCart6( " +
+            "#{in_orderid, mode=IN, jdbcType=VARCHAR}"+
+            ")}")
+    @Results({
+            @Result(column="orderid", property="orderid", jdbcType=JdbcType.INTEGER, id=true),
+            @Result(column="itemid", property="itemid", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="quantity", property="quantity", jdbcType=JdbcType.INTEGER),
+            @Result(column="itemid", property="item",
+                one=@One(select="com.weikun.mapper.ItemMapper.findItemByItemid"))
+    })
+    @Options(statementType = StatementType.CALLABLE)
+    List<Cart> queryCart(@Param("in_orderid") String in_orderid);
+
     @SelectProvider(type=CartSqlProvider.class, method="countByExample")
     long countByExample(CartExample example);
 

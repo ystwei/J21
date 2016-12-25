@@ -30,12 +30,19 @@ public class PetController {
         itemid=itemid.equals("null")?"":itemid;
         if(catid!="" ||catid.length()>0){
             list=pservice.queryPet5Product(catid,proid,itemid);
+            map.put("plist",list);
+            return "shop/product";
+        }else if(proid!="" ||proid.length()>0){
+            list=pservice.queryPet5Items(catid,proid,itemid);
+            map.put("plist",list);
+            return "shop/items";
         }else{
             list=pservice.queryPet5Items(catid,proid,itemid);
-
+            map.put("plist",list);
+            return "shop/item";
         }
-        map.put("plist",list);
 
-        return "";
+
+
     }
 }
