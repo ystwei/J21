@@ -25,6 +25,7 @@ public class PetController {
                         @PathVariable(value="itemid") String itemid,Map map){
         List list=null;
         if(catid!="" ||catid.length()>0){
+
             list=pservice.queryPet5Product(catid,proid,itemid);
         }else{
             list=pservice.queryPet5Items(catid,proid,itemid);
